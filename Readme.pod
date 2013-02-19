@@ -1,0 +1,116 @@
+=pod
+
+=head1 NAME
+
+MojoX::Date::RFC3339 - Date strings according to RFC3339
+
+=head1 SYNOPSIS
+
+  use MojoX::Date::RFC3339;
+
+  my $date = MojoX::Date::RFC3339->new(784111777);
+  my $date_str = $date->to_string;
+  $date->parse('1993-01-01t18:50:00-04:00');
+  my $epoch = $date->epoch;
+
+
+=head1 DESCRIPTION
+
+L<MojoX::Date::RFC3339> implements date and time functions
+according to L<RFC3339|http://tools.ietf.org/html/rfc3339>.
+In addition it supports granularity as described in
+L<W3C date and time formats|http://www.w3.org/TR/NOTE-datetime>.
+
+This module is meant to be compatible with the L<Mojo::Date>-API
+but has no Mojo dependencies.
+
+
+=head1 ATTRIBUTES
+
+L<MojoX::Date::RFC3339> implements the following attributes.
+
+=head2 epoch
+
+  my $epoch = $date->epoch;
+  $date     = $date->epoch(784111777);
+
+Epoch seconds.
+
+
+=head2 granularity
+
+  my $granularity = $date->granularity;
+  $date->granulariy(3);
+
+Level of granularity.
+
+=over 2
+
+=item I<Level 0>: Complete date plus hours, minutes and seconds
+
+=item I<Level 1>: Complete date plus hours and minutes
+
+=item I<Level 2>: Complete date
+
+=item I<Level 3>: Year and month
+
+=item I<Level 4>: Year
+
+=back
+
+
+=head1 METHODS
+
+L<MojoX::Date::RCF3339> implements the following methods.
+
+
+=head2 new
+
+  my $date = MojoX::Date::RFC3339->new;
+  my $date = MojoX::Date::RFC3339->new($string);
+
+Construct a new L<MojoX::Date::RFC3339> object.
+Accepts a date string to be parsed.
+
+=head2 parse
+
+  $date = $date->parse('1993-01-01t18:50:00-04:00');
+  $date = $date->parse('1993-01-01');
+  $date = $date->parse(1312043400);
+
+Parse RFC3339 and granularity compliant date strings.
+Also accepts epoch seconds.
+
+
+=head2 to_string
+
+  my $string = $date->to_string;
+  my $string = $date->to_string(3);
+
+Render date suitable to RFC3339 without offset information.
+Takes an optional parameter for granularity.
+Uses the objects granularity level by default.
+
+
+=head1 DEPENDENCIES
+
+L<Time::Local>.
+
+
+=head1 COPYRIGHT AND LICENSE
+
+The code is heavily based on L<Mojo::Date>,
+written by Sebastian Riedel. See L<Mojo::Date>
+for additional copyright and license information.
+
+=head1 AVAILABILITY
+
+  https://github.com/Akron/MojoX-Date-RFC3999
+
+
+Copyright (C) 2011-2013, L<Nils Diewald|http://nils-diewald.de/>.
+
+This program is free software, you can redistribute it
+and/or modify it under the same terms as Perl.
+
+=cut
