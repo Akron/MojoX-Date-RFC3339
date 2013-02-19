@@ -46,22 +46,22 @@ Level of granularity.
 
 =over 2
 
-=item I<Level 0>: Complete date plus hours, minutes and seconds
+=item 0: Complete date plus hours, minutes and seconds
 
-=item I<Level 1>: Complete date plus hours and minutes
+=item 1: Complete date plus hours and minutes
 
-=item I<Level 2>: Complete date
+=item 2: Complete date
 
-=item I<Level 3>: Year and month
+=item 3: Year and month
 
-=item I<Level 4>: Year
+=item 4: Year
 
 =back
 
 
 =head1 METHODS
 
-L<MojoX::Date::RCF3339> implements the following methods.
+L<MojoX::Date::RFC3339> implements the following methods.
 
 
 =head2 new
