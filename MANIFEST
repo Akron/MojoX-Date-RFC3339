@@ -1,0 +1,6 @@
+lib/MojoX/Date/RFC3339.pm
+t/RFC3339.t
+Changes
+MANIFEST
+LICENSE
+Makefile.PL
